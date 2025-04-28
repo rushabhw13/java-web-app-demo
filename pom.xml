@@ -8,7 +8,8 @@
     <artifactId>java-webapp-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-         <packaging>war</packaging>
+    <!-- ✅ ADD THIS -->
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -16,6 +17,13 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.9.2</version>
             <scope>test</scope>
+        </dependency>
+        <!-- ✅ (Optional) Add servlet-api if you are building a web app -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -30,6 +38,14 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+
+            <!-- ✅ ADD THIS for WAR packaging -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+
         </plugins>
     </build>
 
